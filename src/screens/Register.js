@@ -83,17 +83,9 @@ const Register = () => {
 				<Text className="text-sky-700" onPress={()=>{navigation.navigate('Login')}}>
 					{" "}Click Here
 				</Text>
-			</Text>
+			   </Text>
          </View>  
       </SafeAreaView>
 	);
 };
-const styles = StyleSheet.create({
-	input: {
-	  height: 40,
-	  margin: 12,
-	  borderWidth: 1,
-	  padding: 10,
-	},
- });
 export default Register;
