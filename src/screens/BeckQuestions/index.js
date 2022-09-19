@@ -12,7 +12,6 @@ import BeckCard from '../../components/BeckCard';
 
 const Index = () => {
 	const navigation = useNavigation();
-
    useLayoutEffect(() =>
       navigation.setOptions({
       headerShown: false,
@@ -34,7 +33,7 @@ const Index = () => {
             </Text>
             <TouchableOpacity
                className="bg-sky-700 mt-4 rounded-lg"
-               onPress={()=>{}}
+               onPress={()=>{navigation.navigate("BeckQuestion1")}}
             >
                <Text className="text-white text-base text-center px-3 py-3 ">
                   Click to Continue

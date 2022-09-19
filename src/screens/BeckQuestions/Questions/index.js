@@ -6,22 +6,39 @@ import SafeViewAndroid from "../../../components/SafeViewAndroid";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext' 
 import Question1 from './Question1';
 import Question2 from './Question2';
+import axios from 'axios';
+import { REACT_APP_BASE_API_URL } from "@env";
 
 const Index = () => {
    const navigation = useNavigation();
-   const { beckStatus } = useBeckStatusContext();
+   const { beckStatus, setBeckStatus } = useBeckStatusContext();
+   let config = {};
    useLayoutEffect(() => 
 		navigation.setOptions({
 			headerShown: false,
 		})
 	);
+   const postAnswer = async (answer) => {
+      let response = await AsyncStorage.getItem('@access_token');
+      config = {
+         headers: {Authorization: `Bearer ${response}`}
+      }
+      await axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
+      .then((res) => {
+         setBeckStatus((prevStatus) => prevStatus + 1);
+         console.log('res', res.data)
+      })
+      .catch((error)=> {
+         console.log(error);
+      })
+   }
    const renderQuestion = (param) => {
       switch (param) {
          case 1:
-            return <Question1/>;
+            return <Question1 postAnswer={postAnswer}/>;
             break;
          case 2:
-            return <Question2/>;
+            return <Question2  postAnswer={postAnswer}/>;
             break;
          case 3:
             return <Question3/>;

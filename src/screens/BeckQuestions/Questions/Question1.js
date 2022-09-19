@@ -1,4 +1,5 @@
 import React, {useState, useEffect } from 'react';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
    View,
    Text,
@@ -8,27 +9,32 @@ import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
 
 
-const Question1 = () => {
+const Question1 = ({ postAnswer }) => {
    const [question, setQuestion] = useState([]);
    const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-600'];
-   let questionNum = 1;
-
+   const questionNum = 1;
+   let config = {};
+   const params = {
+      key: "value"
+   };
+  
    useEffect(()=> {
       const fetchQuestion = async () => {
-         try {
-            const res = await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+questionNum)
-            setQuestion(res.data)
-         }
-         catch(error) {
-            throw error;
-         }
+         let response = await AsyncStorage.getItem('@access_token');
+         config = {
+            headers: {Authorization: `Bearer ${response}`}
+         } 
+         const res = await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+questionNum , params, config)
+         .then((response) => {
+            setQuestion(response.data)
+         })
+         .catch((error) => {
+            return error;
+         })
       }
       fetchQuestion();
    }, []);
-
-   const selectAnswer = (id) => {
-      
-   } 
+   
    return (
       <View>
          {question.map((question , i)=>{
@@ -36,7 +42,7 @@ const Question1 = () => {
             <TouchableOpacity
                className={`${bgColor[i]} rounded-lg mt-3`}
                key={i} 
-               onPress={() => selectAnswer(question.id)}
+               onPress={() => postAnswer(question.id)}
             >
                <Text className="text-white p-3 pl-4">
                   {question.option}

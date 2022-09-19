@@ -25,12 +25,10 @@ const LoginScreen = ({ navigate }) => {
     })
   );
   const storeToken = async (value) => {
-    try {
-      await AsyncStorage.setItem("@access_token", value);
-    } catch (error) {
-      console.log("error", error);
-    }
+     const res = await AsyncStorage.setItem("@access_token", value);
+     return res;
   };
+  
   const submitLogin = () => {
     const submit_email = {
       email: email,

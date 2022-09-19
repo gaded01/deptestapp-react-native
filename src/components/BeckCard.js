@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from "@react-navigation/native";
 import {
    View,
    Text,
@@ -7,7 +8,9 @@ import {
    TouchableOpacity,
 } from 'react-native';
 
+
 const BeckCard = ({title}) => {
+   const navigation = useNavigation();
    const details = {
       title: title
    };
@@ -21,7 +24,7 @@ const BeckCard = ({title}) => {
       <View className="flex-row pb-5">
          <TouchableOpacity
             className="relative"
-            onPress={()=> {}}
+            onPress={()=> {navigation.navigate("Beck")}}
          >
             <Image
                style={style.size}
