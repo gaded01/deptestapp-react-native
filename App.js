@@ -15,7 +15,7 @@ import { useState } from "react";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [ beckStatus, setBeckStatus ] = useState(1);
+	const [ beckStatus, setBeckStatus ] = useState(22);
   	return (
 		<NavigationContainer>
 			<TailwindProvider>

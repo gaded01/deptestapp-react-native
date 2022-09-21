@@ -7,13 +7,13 @@ import axios from 'axios';
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 import Question from './Question';
+import Result from './Result';
 
 import { REACT_APP_BASE_API_URL } from "@env";
 
 const Index = () => {
    const navigation = useNavigation();
    const { beckStatus, setBeckStatus } = useBeckStatusContext();
-   const [state, setState] = useState(beckStatus);
    let config = {};
    useLayoutEffect(() => 
 		navigation.setOptions({
@@ -25,23 +25,37 @@ const Index = () => {
       config = {
          headers: {Authorization: `Bearer ${response}`}
       }
-      await axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
-      .then((res) => {
-         setBeckStatus((prevStatus) => prevStatus + 1);
-         setState((prevStatus) => prevStatus + 1);
-         console.log('res', res.data)
-      })
-      .catch((error)=> {
-         console.log(error);
-      })
+      if(beckStatus == 21){
+         await axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
+         .then((res) => {
+            setBeckStatus((prevStatus) => prevStatus + 1);
+            setState((prevStatus) => prevStatus + 1);
+            console.log('res', res.data)
+         })
+         .catch((error)=> {
+            console.log(error);
+         })
+      }
+      else{
+         
+      }
+
+     
    }
 
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         <View>
-            <Text className="text-base pt-5 pb-10">Question {state}/21</Text>
-         </View>
-         <Question postAnswer={postAnswer}/>
+         {beckStatus<= 21?
+            <>  
+               <View>
+                  <Text className="text-base pt-5 pb-10">Question {beckStatus}/21</Text>
+               </View>
+               <Question postAnswer={postAnswer}/>
+            </>
+            :
+            <Result/>
+         }
+        
       </SafeAreaView>
    );
 }
