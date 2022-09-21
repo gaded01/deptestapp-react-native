@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
-import Questions from './Questions';
+import Question from './Question';
 
 import { REACT_APP_BASE_API_URL } from "@env";
 
@@ -41,7 +41,7 @@ const Index = () => {
          <View>
             <Text className="text-base pt-5 pb-10">Question {state}/21</Text>
          </View>
-         <Questions postAnswer={postAnswer}/>
+         <Question postAnswer={postAnswer}/>
       </SafeAreaView>
    );
 }
