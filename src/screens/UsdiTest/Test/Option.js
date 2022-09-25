@@ -9,45 +9,37 @@ import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 
-const Question = ({ postAnswer }) => {
-   const [question, setQuestion] = useState([]);
-   const { beckStatus } = useBeckStatusContext();
-   const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-600'];
+const Option = ({postAnswer}) => {
+   const [usdiOption, setUsdiOption] = useState([]);
+   const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-500', 'bg-red-800'];
    let config = {};
 
    useEffect(()=> {
-      const fetchQuestion = async () => {
-         const params = {key: "value"}; 
+      const fetchOption = async () => {
          const resToken = await AsyncStorage.getItem('@access_token');  
          config = {
             headers: {Authorization: `Bearer ${resToken}`}
          } 
-         const res = await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+beckStatus , params, config)
-         .then((response) => {
-            setQuestion(response.data)
-         })
-         .catch((error) => {
-            return error;
+         const option = await axios.get(`${REACT_APP_BASE_API_URL}/get-usdioption`, config)
+         .then((res)=> {
+            setUsdiOption(() => res.data);
          })
       }
-      fetchQuestion();
-   }, [beckStatus]);
+      fetchOption()
+   },[]);
 
-   const selectAnswer = (questionId) => {
-      postAnswer(questionId);
-   }
-   
+
    return (
       <View>
-         {question.map((question , i)=>{
+        {usdiOption.map((option , i)=>{
             return (
             <TouchableOpacity
                className={`${bgColor[i]} rounded-lg mt-3`}
                key={i} 
-               onPress={() => selectAnswer(question.id)}
+               onPress={() => {postAnswer(option.id)}}
             >
                <Text className="text-white p-3 pl-4">
-                  {question.option}
+                  {option.option}
                </Text>
             </TouchableOpacity>
             );
@@ -56,5 +48,4 @@ const Question = ({ postAnswer }) => {
    );
 }
 
-
-export default Question;
+export default Option;

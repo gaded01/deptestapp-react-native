@@ -9,10 +9,9 @@ import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 
-const Question = ({ postAnswer }) => {
-   const [question, setQuestion] = useState([]);
+const Question = () => {
+   const [usdiQuestion, setUsdiQuestion] = useState([]);
    const { beckStatus } = useBeckStatusContext();
-   const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-600'];
    let config = {};
 
    useEffect(()=> {
@@ -22,9 +21,9 @@ const Question = ({ postAnswer }) => {
          config = {
             headers: {Authorization: `Bearer ${resToken}`}
          } 
-         const res = await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+beckStatus , params, config)
-         .then((response) => {
-            setQuestion(response.data)
+         await axios.post(`${REACT_APP_BASE_API_URL}/get-usdiquestion/`+beckStatus , params, config)
+         .then((res) => {
+            setUsdiQuestion(res.data)
          })
          .catch((error) => {
             return error;
@@ -33,28 +32,13 @@ const Question = ({ postAnswer }) => {
       fetchQuestion();
    }, [beckStatus]);
 
-   const selectAnswer = (questionId) => {
-      postAnswer(questionId);
-   }
-   
    return (
       <View>
-         {question.map((question , i)=>{
-            return (
-            <TouchableOpacity
-               className={`${bgColor[i]} rounded-lg mt-3`}
-               key={i} 
-               onPress={() => selectAnswer(question.id)}
-            >
-               <Text className="text-white p-3 pl-4">
-                  {question.option}
-               </Text>
-            </TouchableOpacity>
-            );
-         })}
+         <Text className="text-lg">
+            {usdiQuestion.question}
+         </Text>
       </View>
    );
 }
-
 
 export default Question;

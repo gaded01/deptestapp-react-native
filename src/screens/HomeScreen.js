@@ -14,7 +14,7 @@ const HomeScreen = () => {
 	const navigation = useNavigation();
    const details = {
       beckTitle: 'Beck Depression Inventory',
-      UsdiTitle: 'University Student Depression Inventory'
+      usdiTitle: 'University Student Depression Inventory'
    }
    useLayoutEffect(() => 
 		navigation.setOptions({
@@ -37,7 +37,7 @@ const HomeScreen = () => {
                </Text>
             </View>
             <BeckCard title={details.beckTitle}/>
-            <UsdiCard title={details.UsdiTitle }/>
+            <UsdiCard title={details.usdiTitle }/>
          </View>
       </SafeAreaView>
    );
