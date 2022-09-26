@@ -8,7 +8,7 @@ import {
    TouchableOpacity,
 } from 'react-native';
 
-const UsdiCard = ({title}) => {
+const UsdiCard = ({title, checkLastTest}) => {
    const navigation = useNavigation();
    const details = {
       title: title
@@ -23,7 +23,7 @@ const UsdiCard = ({title}) => {
       <View className="flex-row pb-5">
          <TouchableOpacity
             className="relative"
-            onPress={()=> {navigation.navigate("Usdi")}}
+            onPress={()=> checkLastTest('Usdi')}
          >
             <Image
                style={style.size}

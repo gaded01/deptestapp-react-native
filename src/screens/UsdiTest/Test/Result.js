@@ -54,5 +54,4 @@ const Result = () => {
    </View>
    );
 }
-
 export default Result;

@@ -8,7 +8,6 @@ import SafeViewAndroid from "../../../components/SafeViewAndroid";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 import Question from './Question';
 import Result from './Result';
-
 import { REACT_APP_BASE_API_URL } from "@env";
 
 const Index = () => {

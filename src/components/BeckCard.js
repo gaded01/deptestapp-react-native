@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 
-const BeckCard = ({title}) => {
+const BeckCard = ({title, checkLastTest}) => {
    const navigation = useNavigation();
    const details = {
       title: title
@@ -24,7 +24,7 @@ const BeckCard = ({title}) => {
       <View className="flex-row pb-5">
          <TouchableOpacity
             className="relative"
-            onPress={()=> {navigation.navigate("Beck")}}
+            onPress={()=> checkLastTest("Beck")}
          >
             <Image
                style={style.size}
