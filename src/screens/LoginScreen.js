@@ -39,7 +39,7 @@ const LoginScreen = ({ navigate }) => {
         if (res.data.status !== "failed") {
           console.log(res.data.access_token);
           storeToken(res.data.access_token);
-          navigation.navigate("Home");
+          navigation.navigate("Root");
         } else {
           alert(res.data.result);
         }

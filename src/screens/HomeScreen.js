@@ -1,11 +1,11 @@
 import { useLayoutEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
 	Text, 
 	SafeAreaView,
    View,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../context/BeckStatusContext';
