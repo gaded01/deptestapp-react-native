@@ -12,6 +12,7 @@ import {useBeckStatusContext} from '../context/BeckStatusContext';
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import BeckCard from "../components/BeckCard";
 import UsdiCard from "../components/UsdiCard";
+import {Bars3BottomRightIcon, Bars3Icon} from "react-native-heroicons/outline";
 
 const HomeScreen = () => {
 	const navigation = useNavigation();
@@ -47,13 +48,18 @@ const HomeScreen = () => {
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
          <View>
-            <Text className="text-2xl font-bold pt-5 pb-5 ">
-               Hello, Good Evening!
-            </Text>
+            <View className="flex-row justify-between align-center pt-3"> 
+               <Text className="text-2xl font-bold pb-5 ">
+                  Hello, Good Evening!
+               </Text>
+               <Bars3BottomRightIcon color="#000" onPress={()=>navigation.openDrawer()}/>
+            </View>
+         
             <View className="pb-5"> 
                <Text className="text-base font-bold">
                   Depression Test
                </Text>
+               
                <Text className="text-xs text-gray-500">
                   Select the following test to take to assess
                </Text>

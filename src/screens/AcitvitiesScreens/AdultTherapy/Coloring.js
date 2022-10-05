@@ -9,9 +9,12 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 
 const Coloring = () => {
+  const navigation = useNavigation();
   const style = StyleSheet.create({
     size: {
       width: 353,
@@ -20,8 +23,15 @@ const Coloring = () => {
   });
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
-        <Text className="text-xl font-bold">Coloring</Text>
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon 
+          style={{ marginTop: 4}} 
+          color="#a3a3a3"
+          onPress={()=>{
+            navigation.navigate("Activities");
+          }}
+        />
+        <Text className="text-xl font-bold ml-3">Coloring</Text>
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView

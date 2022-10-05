@@ -9,9 +9,12 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 import SafeViewAndroid from "../../../../components/SafeViewAndroid";
 
 const Cooking = () => {
+  const navigation = useNavigation();
   const style = StyleSheet.create({
     size: {
       width: 353,
@@ -20,7 +23,14 @@ const Cooking = () => {
   });
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon
+          style={{ marginTop: 4 }}
+          color="#a3a3a3"
+          onPress={() => {
+            navigation.navigate("Activities");
+          }}
+        />
         <Text className="text-xl font-bold">Cooking</Text>
       </View>
       <View style={{ flex: 1 }}>
@@ -35,7 +45,7 @@ const Cooking = () => {
         >
           <Image
             style={style.size}
-            source={require("../../../../../assets/AcitvitiesImage/HelpDepression/Indoor/chores.jpg")}
+            source={require("../../../../../assets/AcitvitiesImage/HelpDepression/Indoor/cooking.jpg")}
             className="rounded-lg"
           />
 

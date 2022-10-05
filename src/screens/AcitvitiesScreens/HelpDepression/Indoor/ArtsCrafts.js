@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   View,
   StyleSheet,
@@ -10,17 +11,26 @@ import {
   TouchableOpacity,
 } from "react-native";
 import SafeViewAndroid from "../../../../components/SafeViewAndroid";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 
 const ArtsCrafts = () => {
-  const style = StyleSheet.create({
-    size: {
-      width: 353,
-      height: 180,
-    },
-  });
+	const navigation = useNavigation();
+	const style = StyleSheet.create({
+		size: {
+			width: 353,
+			height: 180,
+		},
+  	});
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon
+          style={{ marginTop: 4 }}
+          color="#a3a3a3"
+          onPress={() => {
+            navigation.navigate("Activities");
+          }}
+        />
         <Text className="text-xl font-bold">Arts and crafts</Text>
       </View>
       <View style={{ flex: 1 }}>
@@ -42,7 +52,7 @@ const ArtsCrafts = () => {
           <View className="py-3 ">
             <Text className="text-base text-justify text-gray-500 pb-3">
               Creativity is an ideal way to express yourself, and it can help
-              you do that even when you don’t intend to. Writing, pottery and
+              you do that even when you don't intend to. Writing, pottery and
               sketching are some examples of creative outlets for depression.
               Paper crafts, like making cards, or needlework, like knitting or
               embroidery, help you focus on a detailed task that often requires

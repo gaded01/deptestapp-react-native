@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   View,
@@ -9,9 +10,11 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 
 const Massage = () => {
+  const navigation = useNavigation();
   const style = StyleSheet.create({
     size: {
       width: 353,
@@ -20,8 +23,15 @@ const Massage = () => {
   });
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
-        <Text className="text-xl font-bold">Watch Movie</Text>
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon
+          style={{ marginTop: 3 }}
+          color="#a3a3a3"
+          onPress={() => {
+            navigation.navigate("Activities");
+          }}
+        />
+        <Text className="text-xl font-bold">Get a Massage</Text>
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView

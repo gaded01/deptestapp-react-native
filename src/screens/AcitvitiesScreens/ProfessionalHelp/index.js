@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   View,
@@ -9,10 +10,13 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 
 const ProfessionalHelp = () => {
+  const navigation = useNavigation();
   const style = StyleSheet.create({
+
     size: {
       width: 353,
       height: 180,
@@ -20,10 +24,15 @@ const ProfessionalHelp = () => {
   });
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
-        <Text className="text-xl font-bold">
-          Get Professional Help for Depression
-        </Text>
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon
+          style={{ marginTop: 3 }}
+          color="#a3a3a3"
+          onPress={() => {
+            navigation.navigate("Activities");
+          }}
+        />
+         <Text className="text-xl font-bold">Get Professional Help for Depression</Text> 
       </View>
       <View style={{ flex: 1 }}>
         <ScrollView
@@ -37,7 +46,7 @@ const ProfessionalHelp = () => {
         >
           <Image
             style={style.size}
-            source={require("../../../../assets/AcitvitiesImage/PeopleDepression/have_bite.jpg")}
+            source={require("../../../../assets/AcitvitiesImage/ProfessionalHelp/prof_help.jpg")}
             className="rounded-lg"
           />
 

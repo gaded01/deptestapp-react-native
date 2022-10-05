@@ -26,6 +26,8 @@ import Meditation  from "../screens/AcitvitiesScreens/AdultTherapy/Meditation"
 import Yoga  from "../screens/AcitvitiesScreens/AdultTherapy/Yoga"
 
 import ProfessionalHelp  from "../screens/AcitvitiesScreens/ProfessionalHelp/index"
+import PrivacyPolicy  from "../screens/PrivacyPolicy"
+
 
 
 const Drawer = createDrawerNavigator();
@@ -34,25 +36,159 @@ const Root = () => {
       <Drawer.Navigator>
          <Drawer.Screen name="Home" component={HomeScreen} />
          <Drawer.Screen name="Activities" component={Activities} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Bike" component={Bike} options={{ headerShown: false }}/>
-         <Drawer.Screen name="OutReading" component={OutReading} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Walk" component={Walk} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Swimming" component={Swimming} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Gardening" component={Gardening} options={{ headerShown: false }}/>
-         <Drawer.Screen name="ArtsCrafts" component={ArtsCrafts} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Bath" component={Bath} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Chores" component={Chores} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Cooking" component={Cooking} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Games" component={Games} options={{ headerShown: false }}/>
-         <Drawer.Screen name="InReading" component={InReading} options={{ headerShown: false }}/>
-         <Drawer.Screen name="GetCultured" component={GetCultured} options={{ headerShown: false }}/>
-         <Drawer.Screen name="HaveBite" component={HaveBite} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Massage" component={Massage} options={{ headerShown: false }}/>
-         <Drawer.Screen name="WatchMovie" component={WatchMovie} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Coloring" component={Coloring} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Meditation" component={Meditation} options={{ headerShown: false }}/>
-         <Drawer.Screen name="Yoga" component={Yoga} options={{ headerShown: false }}/>
-         <Drawer.Screen name="ProfessionalHelp" component={ProfessionalHelp} options={{ headerShown: false }}/>
+         <Drawer.Screen name="Privacy Policy" component={PrivacyPolicy} options={{ headerShown: false }}/>
+         <Drawer.Screen 
+            name="Bike" 
+            component={Bike} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="OutReading" 
+            component={OutReading} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="Walk" 
+            component={Walk} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="Swimming" 
+            component={Swimming} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="Gardening" 
+            component={Gardening} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="ArtsCrafts" 
+            component={ArtsCrafts} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' }
+
+            }}
+         />
+         <Drawer.Screen 
+            name="Bath" 
+            component={Bath} 
+            options={{ 
+               headerShown: false,
+                drawerItemStyle: { display: 'none' }
+            }}
+         />
+         <Drawer.Screen 
+            name="Chores" 
+            component={Chores} 
+            options={{ 
+               headerShown: false,
+                drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Cooking" 
+            component={Cooking} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Games" 
+            component={Games} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="InReading" 
+            component={InReading} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}/>
+         <Drawer.Screen 
+            name="GetCultured" 
+            component={GetCultured} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="HaveBite" 
+            component={HaveBite} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Massage" 
+            component={Massage}
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="WatchMovie" 
+            component={WatchMovie} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Coloring" 
+            component={Coloring} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Meditation" 
+            component={Meditation} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Yoga" 
+            component={Yoga} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="ProfessionalHelp" 
+            component={ProfessionalHelp} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
       </Drawer.Navigator>
    );
 }

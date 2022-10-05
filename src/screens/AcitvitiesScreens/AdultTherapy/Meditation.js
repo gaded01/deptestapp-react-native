@@ -9,9 +9,12 @@ import {
   Touchable,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 
 const Meditation = () => {
+  const navigation = useNavigation();
   const style = StyleSheet.create({
     size: {
       width: 353,
@@ -20,7 +23,14 @@ const Meditation = () => {
   });
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-      <View className="pb-2">
+      <View className="flex-row justify-start item-center">
+        <ArrowSmallLeftIcon
+          style={{ marginTop: 4 }}
+          color="#a3a3a3"
+          onPress={() => {
+            navigation.navigate("Activities");
+          }}
+        />
         <Text className="text-xl font-bold">Meditation</Text>
       </View>
       <View style={{ flex: 1 }}>
@@ -35,7 +45,7 @@ const Meditation = () => {
         >
           <Image
             style={style.size}
-            source={require("../../../../assets/AcitvitiesImage/AdultTherapy/coloring.jpg")}
+            source={require("../../../../assets/AcitvitiesImage/AdultTherapy/meditation.jpg")}
             className="rounded-lg"
           />
 
