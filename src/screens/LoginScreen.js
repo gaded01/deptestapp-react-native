@@ -14,10 +14,12 @@ import {
 import axios from "axios";
 import { REACT_APP_BASE_API_URL } from "@env";
 import SafeViewAndroid from "../components/SafeViewAndroid";
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const LoginScreen = ({ navigate }) => {
-  const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
+  const navigation = useNavigation();
 
   useLayoutEffect(() =>
     navigation.setOptions({
@@ -30,12 +32,11 @@ const LoginScreen = ({ navigate }) => {
   };
   
   const submitLogin = () => {
-    const submit_email = {
-      email: email,
-    };
-    axios
-      .post(`${REACT_APP_BASE_API_URL}/user-login`, submit_email)
+    const submit_email = {email: email};
+    setLoading(true);
+    axios.post(`${REACT_APP_BASE_API_URL}/user-login`, submit_email)
       .then((res) => {
+        setLoading(false);
         if (res.data.status !== "failed") {
           console.log(res.data.access_token);
           storeToken(res.data.access_token);
@@ -43,6 +44,7 @@ const LoginScreen = ({ navigate }) => {
         } else {
           alert(res.data.result);
         }
+       
       })
       .catch((error) => {
         console.log(error);
@@ -51,35 +53,38 @@ const LoginScreen = ({ navigate }) => {
 
 
   return (
-   <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+    <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <View>
-			<View className="flex flex-row justify-center mt-10">
-				<Image
-					source={require("../../assets/app-logo.jpg")}
-					className="h-40 w-40"
-				/>
-			</View>
-        	<Text className="mb-4 mt-2 text-lg text-center">Login Form</Text>
-			<TextInput
-				className="p-2 rounded-md border mb-5"
-				onChangeText={setEmail}
-				value={email}
-				placeholder="Enter Email"
-			/>
-			<TouchableOpacity 
-				className="bg-sky-700 rounded-lg"
-				onPress={submitLogin}
-			>
-				<Text className="text-white p-3 text-center">Login</Text>
-			</TouchableOpacity>
-			<Text className="mt-5 text-center">
-					No account?
-				<Text className="text-sky-700" onPress={()=>{navigation.navigate("Register")}}>
+        <View className="flex flex-row justify-center mt-10">
+          <Image
+            source={require("../../assets/app-logo.jpg")}
+            className="h-40 w-40"
+          />
+        </View>
+        <Text className="mb-4 mt-2 text-lg text-center">Login Form</Text>
+        <TextInput
+          className="p-2 rounded-md border mb-5"
+          onChangeText={setEmail}
+          value={email}
+          placeholder="Enter Email"
+        />
+        <TouchableOpacity 
+          className="bg-sky-700 rounded-lg"
+          onPress={submitLogin}
+        >
+				  <Text className="text-white p-3 text-center">Login</Text>
+			  </TouchableOpacity>
+        <Text className="mt-5 text-center">
+          No account?
+				  <Text className="text-sky-700" onPress={()=>{navigation.navigate("Register")}}>
 					{" "}Click Here
-				</Text>
-			</Text>
+				  </Text>
+			  </Text>
       </View>
-   </SafeAreaView>
+      <Spinner
+        visible={loading}
+      />
+    </SafeAreaView>
   );
 };
 

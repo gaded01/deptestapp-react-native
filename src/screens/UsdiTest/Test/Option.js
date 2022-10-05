@@ -30,7 +30,7 @@ const Option = ({postAnswer}) => {
 
 
    return (
-      <View>
+      <View className="pt-5">
         {usdiOption.map((option , i)=>{
             return (
             <TouchableOpacity

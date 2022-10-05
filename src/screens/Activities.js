@@ -11,9 +11,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import SafeViewAndroid from "../components/SafeViewAndroid";
-import { ArrowLeftIcon, ArrowRightIcon, ArrowSmallLeftIcon, Bars3BottomRightIcon, Bars3Icon } from "react-native-heroicons/outline";
-
-
+import {ArrowRightIcon,  Bars3BottomRightIcon } from "react-native-heroicons/outline";
 
 const Activities = () => {
    const navigation = useNavigation();

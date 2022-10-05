@@ -6,9 +6,8 @@ import Register from "../screens/Register";
 import HomeScreen from "../screens/HomeScreen";
 import Beck from "../screens/BeckTest/index";
 import Root from '../screens/Root';
-import BeckQuestion from "../screens/BeckTest/Questions/index";
 import Usdi from "../screens/UsdiTest/index";
-import UsdiQuestion from "../screens/UsdiTest/Test/index";
+
 
 
 const Stack = createNativeStackNavigator();
@@ -18,9 +17,7 @@ const AuthStack = () => {
          <Stack.Screen name="Login" component={LoginScreen} />
          <Stack.Screen name="Register" component={Register} />
          <Stack.Screen name="Beck" component={Beck}/>
-         <Stack.Screen name="BeckQuestion" component={BeckQuestion} />
          <Stack.Screen name="Usdi" component={Usdi}/>
-         <Stack.Screen name="UsdiQuestion" component={UsdiQuestion}/>
          <Stack.Screen name="Root" component={Root}  options={{ headerShown: false }}/>
       </Stack.Navigator>
    );

@@ -14,10 +14,12 @@ import {
 import axios from "axios";
 import {REACT_APP_BASE_API_URL} from '@env';
 import SafeViewAndroid from "../components/SafeViewAndroid";
+import Spinner from 'react-native-loading-spinner-overlay';
 
 
 const Register = () => {
 	const navigation = useNavigation();
+   const [loading, setLoading] = useState(false);
    const [data, setData] = useState({
       email : '',
       age : '',
@@ -34,17 +36,21 @@ const Register = () => {
    }
 
    const submitRegistration = () => {
+      setLoading(true);
       const register = async () => {
          try {
             const res = await axios.post(`${REACT_APP_BASE_API_URL}/user-signup`, data);
             if(res.data.status !== 'failed'){
                setData('')
                alert('Registration Success');
+               setLoading(false);
             }
             else{
                console.log(res)
                alert('Registration Failed')
+               setLoading(false);
             }
+           
          } catch (error) {
             console.log(error)
          }
@@ -85,6 +91,9 @@ const Register = () => {
 				</Text>
 			   </Text>
          </View>  
+         <Spinner
+            visible={loading}
+         />
       </SafeAreaView>
 	);
 };

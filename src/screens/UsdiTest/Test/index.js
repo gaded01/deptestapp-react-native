@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 import { useNavigation, } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import {Bars3BottomRightIcon } from "react-native-heroicons/outline";
 
 import SafeViewAndroid from "../../../components/SafeViewAndroid";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
@@ -10,9 +11,11 @@ import { REACT_APP_BASE_API_URL } from "@env";
 import Option from './Option';
 import Question from './Question';
 import Result from './Result';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const Index = () => {
    const navigation = useNavigation();
+   const [loading, setLoading] = useState(false);
    const { beckStatus, setBeckStatus } = useBeckStatusContext();
    let config = {};
    useLayoutEffect(() => 
@@ -23,8 +26,7 @@ const Index = () => {
 
    // Submit Answer
    const postAnswer = async (answer) => {
-      console.log(beckStatus)
-      console.log(answer)
+      setLoading(true);
       let response = await AsyncStorage.getItem('@access_token');
       config = {
          headers: {Authorization: `Bearer ${response}`}
@@ -37,18 +39,25 @@ const Index = () => {
          .catch((error)=> {
             console.log(error);
          })
+         setLoading(false);
       }
    }
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         {beckStatus <= 2?
+         {beckStatus <= 30?
             <>  
                <Question/>
                <Option postAnswer={postAnswer}/>
             </>
             :
-            <Result/>
+            <> 
+               <Result/>
+            </>
+            
          }
+         <Spinner
+            visible={loading}
+         />
       </SafeAreaView>
    );
 }

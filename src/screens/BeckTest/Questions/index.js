@@ -9,9 +9,11 @@ import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 import Question from './Question';
 import Result from './Result';
 import { REACT_APP_BASE_API_URL } from "@env";
+import Spinner from 'react-native-loading-spinner-overlay';
 
 const Index = () => {
    const navigation = useNavigation();
+   const [loading, setLoading] = useState(false);
    const { beckStatus, setBeckStatus } = useBeckStatusContext();
    let config = {};
    useLayoutEffect(() => 
@@ -22,6 +24,7 @@ const Index = () => {
    
    // Submit Answer
    const postAnswer = async (answer) => {
+      setLoading(true);
       let response = await AsyncStorage.getItem('@access_token');
       config = {
          headers: {Authorization: `Bearer ${response}`}
@@ -30,6 +33,7 @@ const Index = () => {
          await axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
          .then(() => {
             setBeckStatus((prevStatus) => prevStatus + 1);
+            setLoading(false);
          })
          .catch((error)=> {
             console.log(error);
@@ -47,16 +51,19 @@ const Index = () => {
 
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         {beckStatus<= 21?
+         {beckStatus<= 1?
             <>  
                <View>
-                  <Text className="text-base pt-5 pb-10">Question {beckStatus}/21</Text>
+                  <Text className="text-lg font-bold pt-5 pb-10">Question {beckStatus}/21</Text>
                </View>
                <Question postAnswer={postAnswer}/> 
             </>
             :
             <Result/>
          }
+         <Spinner
+            visible={loading}
+         />
       </SafeAreaView>
    );
 }

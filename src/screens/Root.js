@@ -3,30 +3,35 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "../screens/HomeScreen";
 import Activities from "../screens/Activities";
-import Walk  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Walk"
-import Bike  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Bike"
-import OutReading  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/OutReading"
-import Gardening  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Gardening"
-import Swimming  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Swimming"
+import Walk  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Walk";
+import Bike  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Bike";
+import OutReading  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/OutReading";
+import Gardening  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Gardening";
+import Swimming  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Swimming";
 
-import ArtsCrafts  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/ArtsCrafts"
-import Bath  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Bath"
-import Chores  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Chores"
-import Cooking  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Cooking"
-import Games  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Games"
-import InReading  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/InReading"
+import ArtsCrafts  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/ArtsCrafts";
+import Bath  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Bath";
+import Chores  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Chores";
+import Cooking  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Cooking";
+import Games  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/Games";
+import InReading  from "../screens/AcitvitiesScreens/HelpDepression/Indoor/InReading";
 
-import GetCultured  from "../screens/AcitvitiesScreens/PeopleDepression/GetCultured"
-import HaveBite  from "../screens/AcitvitiesScreens/PeopleDepression/HaveBite"
-import Massage  from "../screens/AcitvitiesScreens/PeopleDepression/Massage"
-import WatchMovie  from "../screens/AcitvitiesScreens/PeopleDepression/WatchMovie"
+import GetCultured  from "../screens/AcitvitiesScreens/PeopleDepression/GetCultured";
+import HaveBite  from "../screens/AcitvitiesScreens/PeopleDepression/HaveBite";
+import Massage  from "../screens/AcitvitiesScreens/PeopleDepression/Massage";
+import WatchMovie  from "../screens/AcitvitiesScreens/PeopleDepression/WatchMovie";
 
-import Coloring  from "../screens/AcitvitiesScreens/AdultTherapy/Coloring"
-import Meditation  from "../screens/AcitvitiesScreens/AdultTherapy/Meditation"
-import Yoga  from "../screens/AcitvitiesScreens/AdultTherapy/Yoga"
+import Coloring  from "../screens/AcitvitiesScreens/AdultTherapy/Coloring";
+import Meditation  from "../screens/AcitvitiesScreens/AdultTherapy/Meditation";
+import Yoga  from "../screens/AcitvitiesScreens/AdultTherapy/Yoga";
+;
+import ProfessionalHelp  from "../screens/AcitvitiesScreens/ProfessionalHelp/index";
+import PrivacyPolicy  from "../screens/PrivacyPolicy";
 
-import ProfessionalHelp  from "../screens/AcitvitiesScreens/ProfessionalHelp/index"
-import PrivacyPolicy  from "../screens/PrivacyPolicy"
+import BeckResult  from "../screens/BeckTest/Questions/index";
+import UsdiResult  from "../screens/UsdiTest/Test/Result";
+import UsdiQuestion from "../screens/UsdiTest/Test/index";
+import BeckQuestion from "../screens/BeckTest/Questions/index";
 
 
 
@@ -37,6 +42,38 @@ const Root = () => {
          <Drawer.Screen name="Home" component={HomeScreen} />
          <Drawer.Screen name="Activities" component={Activities} options={{ headerShown: false }}/>
          <Drawer.Screen name="Privacy Policy" component={PrivacyPolicy} options={{ headerShown: false }}/>
+         <Drawer.Screen 
+            name="UsdiQuestion" 
+            component={UsdiQuestion} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="BeckQuestion" 
+            component={BeckQuestion} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="UsdiResult" 
+            component={UsdiResult} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="BeckResult" 
+            component={UsdiResult} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
          <Drawer.Screen 
             name="Bike" 
             component={Bike} 
@@ -189,6 +226,7 @@ const Root = () => {
                drawerItemStyle: { display: 'none' } 
             }}
          />
+     
       </Drawer.Navigator>
    );
 }

@@ -33,8 +33,8 @@ const Question = () => {
    }, [beckStatus]);
 
    return (
-      <View>
-         <Text className="text-lg">
+      <View className="pt-5">
+         <Text className="text-xl font-bold">
             {usdiQuestion.question}
          </Text>
       </View>

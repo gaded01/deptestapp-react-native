@@ -9,7 +9,10 @@ import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../../../context/BeckStatusContext';
 
+
+
 const Question = ({ postAnswer }) => {
+
    const [question, setQuestion] = useState([]);
    const { beckStatus } = useBeckStatusContext();
    const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-600'];
@@ -52,6 +55,7 @@ const Question = ({ postAnswer }) => {
             </TouchableOpacity>
             );
          })}
+        
       </View>
    );
 }
