@@ -18,7 +18,6 @@ const Result = () => {
 
    useEffect(()=> { 
       const fetchUsdiResult = async () => {
-
          let response = await AsyncStorage.getItem('@access_token');
          config = {
             headers: {Authorization: `Bearer ${response}`}
@@ -63,7 +62,6 @@ const Result = () => {
       <>
          <View className="pt-3 flex-row justify-end">
             <Bars3BottomRightIcon color="#000" onPress={()=> navigation.openDrawer()}/>
-
          </View>
          <View className="pt-5">
          {usdiResult?

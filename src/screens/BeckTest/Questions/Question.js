@@ -25,16 +25,17 @@ const Question = ({ postAnswer }) => {
          config = {
             headers: {Authorization: `Bearer ${resToken}`}
          } 
-         const res = await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+beckStatus , params, config)
+         await axios.post(`${REACT_APP_BASE_API_URL}/get-beckoption/`+beckStatus , params, config)
          .then((response) => {
             setQuestion(response.data)
          })
          .catch((error) => {
             return error;
-         })
+         }) 
       }
       fetchQuestion();
-   }, [beckStatus]);
+
+   },[]);
 
    const selectAnswer = (questionId) => {
       postAnswer(questionId);

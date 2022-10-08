@@ -7,11 +7,11 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
-import {useBeckStatusContext} from '../../../context/BeckStatusContext';
+import {useUsdiStatusContext} from '../../../context/UsdiStatusContext';
 
 const Question = () => {
    const [usdiQuestion, setUsdiQuestion] = useState([]);
-   const { beckStatus } = useBeckStatusContext();
+   const { usdiStatus } = useUsdiStatusContext();
    let config = {};
 
    useEffect(()=> {
@@ -21,21 +21,22 @@ const Question = () => {
          config = {
             headers: {Authorization: `Bearer ${resToken}`}
          } 
-         await axios.post(`${REACT_APP_BASE_API_URL}/get-usdiquestion/`+beckStatus , params, config)
+         await axios.post(`${REACT_APP_BASE_API_URL}/get-usdiquestion/`+usdiStatus , params, config)
          .then((res) => {
             setUsdiQuestion(res.data)
+            
          })
          .catch((error) => {
             return error;
          })
       }
       fetchQuestion();
-   }, [beckStatus]);
+   }, [usdiStatus]); 
 
    return (
       <View className="pt-5">
          <Text className="text-xl font-bold">
-            {usdiQuestion.question}
+            {usdiQuestion.id+". " + usdiQuestion.question}
          </Text>
       </View>
    );

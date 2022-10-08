@@ -7,9 +7,10 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { REACT_APP_BASE_API_URL } from "@env";
-import {useBeckStatusContext} from '../../../context/BeckStatusContext';
+import {useUsdiStatusContext} from '../../../context/UsdiStatusContext';
 
 const Option = ({postAnswer}) => {
+   const { usdiStatus, setUsdiStatus } = useUsdiStatusContext();
    const [usdiOption, setUsdiOption] = useState([]);
    const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-500', 'bg-red-800'];
    let config = {};
@@ -20,12 +21,12 @@ const Option = ({postAnswer}) => {
          config = {
             headers: {Authorization: `Bearer ${resToken}`}
          } 
-         const option = await axios.get(`${REACT_APP_BASE_API_URL}/get-usdioption`, config)
+         await axios.get(`${REACT_APP_BASE_API_URL}/get-usdioption`, config)
          .then((res)=> {
             setUsdiOption(() => res.data);
          })
       }
-      fetchOption()
+      fetchOption();
    },[]);
 
 

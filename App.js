@@ -3,6 +3,7 @@ import { useState } from "react";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { BeckStatusContext } from './src/context/BeckStatusContext'
+import { UsdiStatusContext } from './src/context/UsdiStatusContext'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from "./src/screens/LoginScreen";
 import AuthStack from "./src/navigation/AuthStack";
@@ -18,11 +19,15 @@ const Stack = createDrawerNavigator();
 
 export default function App() {
 	const [ beckStatus, setBeckStatus ] = useState(1);
+	const [ usdiStatus, setUsdiStatus ] = useState(1);
+	
   	return (
 		<NavigationContainer>
 			<TailwindProvider>
 				<BeckStatusContext.Provider value={{beckStatus, setBeckStatus }}>
+					<UsdiStatusContext.Provider value={{usdiStatus, setUsdiStatus }}>
 					<AuthStack/>
+					</UsdiStatusContext.Provider>
 				</BeckStatusContext.Provider>
 			</TailwindProvider>
 		</NavigationContainer>

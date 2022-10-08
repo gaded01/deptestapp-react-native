@@ -32,6 +32,7 @@ import BeckResult  from "../screens/BeckTest/Questions/index";
 import UsdiResult  from "../screens/UsdiTest/Test/Result";
 import UsdiQuestion from "../screens/UsdiTest/Test/index";
 import BeckQuestion from "../screens/BeckTest/Questions/index";
+import Logout from "../screens/Logout";
 
 
 
@@ -224,6 +225,13 @@ const Root = () => {
             options={{ 
                headerShown: false,
                drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Drawer.Screen 
+            name="Logout" 
+            component={Logout} 
+            options={{ 
+               headerShown: false,
             }}
          />
      
