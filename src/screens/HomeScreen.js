@@ -33,7 +33,7 @@ const HomeScreen = () => {
       config = {
          headers: {Authorization: `Bearer ${response}`}
       } 
-      await axios.post(`${REACT_APP_BASE_API_URL}/check-test`,{key:'value'}, config)
+      await axios.get(`${REACT_APP_BASE_API_URL}/check-test`, config)
       .then((res)=> {
          if(res.data.status !== 'failed'){
             navigation.navigate(component);

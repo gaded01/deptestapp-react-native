@@ -12,13 +12,6 @@ import { REACT_APP_BASE_API_URL } from "@env";
 import Spinner from 'react-native-loading-spinner-overlay';
 
 
-function useForceUpdate(){
-   const forceUpdate = useForceUpdate()
-   const [value, setValue] = useState(0); // integer state
-   return () => setValue(value => value + 1); // update state to force render
-   // An function that increment 👆🏻 the previous state like here 
-   // is better than directly setting `value + 1`
-}
 
 const Index = () => {
    const navigation = useNavigation();
@@ -60,7 +53,8 @@ const Index = () => {
          headers: {Authorization: `Bearer ${response}`}
       }
       if(beckStatus <= 21){
-         await axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
+      
+         axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
          .then(() => {
             setBeckStatus((prevStatus) => prevStatus + 1);
             setLoading(false);

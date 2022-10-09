@@ -57,7 +57,7 @@ const LoginScreen = ({ navigate }) => {
       <View>
         <View className="flex flex-row justify-center mt-10">
           <Image
-            source={require("../../assets/app-logo.jpg")}
+            source={require("../../assets/app-logo.png")}
             className="h-40 w-40"
           />
         </View>

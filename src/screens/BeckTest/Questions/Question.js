@@ -35,7 +35,7 @@ const Question = ({ postAnswer }) => {
       }
       fetchQuestion();
 
-   },[]);
+   },[beckStatus]);
 
    const selectAnswer = (questionId) => {
       postAnswer(questionId);

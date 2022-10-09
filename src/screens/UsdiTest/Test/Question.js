@@ -24,7 +24,6 @@ const Question = () => {
          await axios.post(`${REACT_APP_BASE_API_URL}/get-usdiquestion/`+usdiStatus , params, config)
          .then((res) => {
             setUsdiQuestion(res.data)
-            
          })
          .catch((error) => {
             return error;

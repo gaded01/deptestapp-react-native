@@ -44,7 +44,6 @@ const Index = () => {
             if(res.data !== 1){
                setUsdiStatus(()=>res.data);
                setLoading(false);
-               console.log('run baybay run')
             }
             else {
                setLoading(false);
@@ -52,7 +51,7 @@ const Index = () => {
          })
       }
       getItemNumber()
-   },[]); 
+   },[usdiStatus]); 
    
    // Submit Answer
    const postAnswer = async (answer) => {
