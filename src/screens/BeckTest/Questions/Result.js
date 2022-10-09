@@ -48,7 +48,7 @@ const Result = () => {
          result: beckResult.beck_depression_level.level_of_depression,
       }
       setLoading(true);
-      await axios.post(`${REACT_APP_BASE_API_URL}/beck_result-email/`, data, config)
+      await axios.post(`${REACT_APP_BASE_API_URL}/beck_result-email`, data, config)
       .then((res) => {
          if(res.data.status){
             alert('Email Result Sent!');

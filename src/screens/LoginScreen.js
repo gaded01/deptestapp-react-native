@@ -61,9 +61,9 @@ const LoginScreen = ({ navigate }) => {
             className="h-40 w-40"
           />
         </View>
-        <Text className="mb-4 mt-2 text-lg text-center">Login Form</Text>
+        <Text className="mb-4 mt-2 text-lg font-bold text-center">Login Form</Text>
         <TextInput
-          className="p-2 rounded-md border mb-5"
+          className="p-3 rounded-md border mb-5"
           onChangeText={setEmail}
           value={email}
           placeholder="Enter Email"
@@ -72,12 +72,12 @@ const LoginScreen = ({ navigate }) => {
           className="bg-sky-700 rounded-lg"
           onPress={submitLogin}
         >
-				  <Text className="text-white p-3 text-center">Login</Text>
+				  <Text className="text-white text-lg p-3 text-center">Login</Text>
 			  </TouchableOpacity>
-        <Text className="mt-5 text-center">
+        <Text className="mt-5 text-base text-center">
           No account?
 				  <Text className="text-sky-700" onPress={()=>{navigation.navigate("Register")}}>
-					{" "}Click Here
+					{" "}Click here to register.
 				  </Text>
 			  </Text>
       </View>
