@@ -41,12 +41,12 @@ const Register = () => {
          try {
             const res = await axios.post(`${REACT_APP_BASE_API_URL}/user-signup`, data);
             if(res.data.status !== 'failed'){
-               setData('')
                alert('Registration Success');
+               setData('')
                setLoading(false);
+              
             }
             else{
-               console.log(res)
                alert('Registration Failed')
                setLoading(false);
             }
@@ -67,27 +67,30 @@ const Register = () => {
                   className="h-40 w-40"
                />
             </View>
-            <Text className="mb-4 mt-2 text-lg text-center">Register Here</Text>
+            <Text className="mb-4 mt-2 text-lg font-bold text-center">Register Here</Text>
             <TextInput
-               className="p-2 rounded-md border mb-3"
+               className="p-3 rounded-md border mb-3"
                onChangeText={(email) => inputHandler('email', email)}
                placeholder="Enter Email"
+               value={data.email}
+
             />
             <TextInput
-               className="p-2 rounded-md border mb-5"
+               className="p-3 rounded-md border mb-5"
                onChangeText={(age) => inputHandler('age', age)}
                placeholder="Enter Age"
+               value={data.age}
             />
             <TouchableOpacity 
                className="bg-sky-700 rounded-lg"
                onPress={submitRegistration}
             >
-               <Text className="text-white p-3 text-center">Register</Text>
+               <Text className="text-white text-base p-3 text-center">Register</Text>
             </TouchableOpacity>
-            <Text className="mt-5 text-center">
+            <Text className="mt-5 text-base text-center">
 					Want to login?
 				<Text className="text-sky-700" onPress={()=>{navigation.navigate('Login')}}>
-					{" "}Click Here
+					{" "}Click here to login.
 				</Text>
 			   </Text>
          </View>  

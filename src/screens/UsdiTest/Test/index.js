@@ -61,15 +61,17 @@ const Index = () => {
          headers: {Authorization: `Bearer ${response}`}
       }
       if(usdiStatus <= 30){
-         await axios.post(`${REACT_APP_BASE_API_URL}/usdi-answer`, {usdi_question_id: usdiStatus, usdi_option_id: answer}, config)
-         .then(() => {
-            console.log('success')
-            setUsdiStatus((prevStatus) => prevStatus + 1);
-         })
-         .catch((error)=> {
-            console.log(error);
-         })
-         setLoading(false);
+         setTimeout(() => {
+             axios.post(`${REACT_APP_BASE_API_URL}/usdi-answer`, {usdi_question_id: usdiStatus, usdi_option_id: answer}, config)
+            .then(() => {
+               console.log('success')
+               setUsdiStatus((prevStatus) => prevStatus + 1);
+            })
+            .catch((error)=> {
+               console.log(error);
+            })
+            setLoading(false);
+         }, 5000);
       }
    }
    return (

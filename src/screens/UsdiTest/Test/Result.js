@@ -44,7 +44,7 @@ const Result = () => {
          result: usdiResult.usdi_depression_level.depression_level,
       }
       setLoading(true);
-      await axios.post(`${REACT_APP_BASE_API_URL}/usdi_result-email/`, data, config)
+      await axios.post(`${REACT_APP_BASE_API_URL}/usdi_result-email`, data, config)
       .then((res) => {
          console.log('rres', res)
          if(res.data.status){

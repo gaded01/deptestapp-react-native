@@ -12,7 +12,6 @@ import { REACT_APP_BASE_API_URL } from "@env";
 import Spinner from 'react-native-loading-spinner-overlay';
 
 
-
 const Index = () => {
    const navigation = useNavigation();
    const [loading, setLoading] = useState(false);
@@ -53,15 +52,17 @@ const Index = () => {
          headers: {Authorization: `Bearer ${response}`}
       }
       if(beckStatus <= 21){
-      
-         axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
-         .then(() => {
-            setBeckStatus((prevStatus) => prevStatus + 1);
-            setLoading(false);
-         })
-         .catch((error)=> {
-            console.log(error);
-         })
+         setTimeout(() => {
+             axios.post(`${REACT_APP_BASE_API_URL}/beck-answer`, {id: answer}, config)
+            .then(() => {
+               setBeckStatus((prevStatus) => prevStatus + 1);
+               setLoading(false);
+            })
+            .catch((error)=> {
+               console.log(error);
+            })
+         }, 5000)
+        
       }
       // else{
       //    await axios.post(`${REACT_APP_BASE_API_URL}/beck-result` , config)

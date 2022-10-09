@@ -64,8 +64,13 @@ const HomeScreen = () => {
                   Select the following test to take to assess
                </Text>
             </View>
-            <BeckCard checkLastTest={checkLastTest} title={details.beckTitle}/>
-            <UsdiCard checkLastTest={checkLastTest} title={details.usdiTitle }/>
+            <View className="flex-row justify-center">
+               <BeckCard checkLastTest={checkLastTest} title={details.beckTitle}/>
+            </View>
+            <View className="flex-row justify-center">
+               <UsdiCard checkLastTest={checkLastTest} title={details.usdiTitle }/>
+            </View>
+           
          </View>
       </SafeAreaView>
    );
