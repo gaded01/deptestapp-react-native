@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, StyleSheet, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView} from 'react-native';
 import { REACT_APP_BASE_API_URL } from "@env";
 import DonutChart from '../DonutChart';
 import axios from 'axios';
@@ -42,6 +42,7 @@ const Result = () => {
          email: email,
          total_score: usdiResult.total_score,
          result: usdiResult.usdi_depression_level.depression_level,
+         advice: usdiResult.usdi_depression_level.advice,
       }
       setLoading(true);
       await axios.post(`${REACT_APP_BASE_API_URL}/usdi_result-email`, data, config)
@@ -60,44 +61,59 @@ const Result = () => {
    }
    return ( 
       <>
-         <View className="pt-3 flex-row justify-end">
-            <Bars3BottomRightIcon color="#000" onPress={()=> navigation.openDrawer()}/>
+       <View className="pt-3 flex-row justify-end">
+               <Bars3BottomRightIcon color="#000" onPress={()=> navigation.openDrawer()}/>
          </View>
-         <View className="pt-5">
-         {usdiResult?
-            <>
-               <Text className="text-lg font-bold text-center py-2" >
-                  {usdiResult.usdi_depression_level.depression_level} 
-               </Text>
-               <View> 
-                  <DonutChart score={usdiResult.total_score}/> 
-               </View>
-               <Text className="text-center py-3 ">
-                  Your results indicate that you may be expecting some symptoms of{' '} 
-                  {usdiResult.usdi_depression_level.depression_level}
-               </Text>
-               <View className="pt-5">
-                  <Text className="text-md">Want a copy of your result?</Text>
-                  <TextInput
-                     className="p-3 rounded-md border mb-5"
-                     placeholder="Enter Email"
-                     onChangeText={setEmail}
-                     value={email}
-                  />
-                  <TouchableOpacity
-                        className=" bg-sky-700 rounded-lg mt-2"
-                        onPress={() => sendEmailResult()}
-                     >
-                        <Text className="text-white text-center p-3 pl-4">
-                           Send Result
-                        </Text>
-                     </TouchableOpacity>
-               </View>
-            </>
-            :
-            null}
-            <Spinner visible={loading}/>
-         </View>
+        <ScrollView
+            vertical
+            contentContainerStyle={{
+               paddingVertical: 0,
+               flexGrow: 1,
+            }}
+            showsHorizontalScrollIndicator={false}
+            className="pt-4"
+         >
+            <View className="pt-5">
+            {usdiResult?
+               <>
+                  <Text className="text-lg font-bold text-center py-2" >
+                     {usdiResult.usdi_depression_level.depression_level} 
+                  </Text>
+                  <View> 
+                     <DonutChart score={usdiResult.total_score}/> 
+                  </View>
+                  <Text className="text-center py-3 ">
+                     Your results indicate that you may be expecting some symptoms of{' '} 
+                     {usdiResult.usdi_depression_level.depression_level}
+                  </Text>
+                  <Text className="text-center font-bold uppercase">advice</Text>
+                  <Text className="text-center py-3 ">
+                     Your results indicate that you may be expecting some symptoms of{' '} 
+                     {usdiResult.usdi_depression_level.advice}
+                  </Text>
+                  <View className="pt-5 mb-6">
+                     <Text className="text-md">Want a copy of your result?</Text>
+                     <TextInput
+                        className="p-3 rounded-md border mb-2"
+                        placeholder="Enter Email"
+                        onChangeText={setEmail}
+                        value={email}
+                     />
+                     <TouchableOpacity
+                           className=" bg-sky-700 rounded-lg mt-2"
+                           onPress={() => sendEmailResult()}
+                        >
+                           <Text className="text-white text-center p-3 pl-4">
+                              Send Result
+                           </Text>
+                        </TouchableOpacity>
+                  </View>
+               </>
+               :
+               null}
+               <Spinner visible={loading}/>
+            </View>
+         </ScrollView>
       </>
    );
 }

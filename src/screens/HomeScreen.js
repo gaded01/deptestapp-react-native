@@ -33,7 +33,7 @@ const HomeScreen = () => {
       config = {
          headers: {Authorization: `Bearer ${response}`}
       } 
-      await axios.get(`${REACT_APP_BASE_API_URL}/check-test`, config)
+      await axios.post(`${REACT_APP_BASE_API_URL}/check-test`, {}, config)
       .then((res)=> {
          if(res.data.status !== 'failed'){
             navigation.navigate(component);
@@ -50,7 +50,7 @@ const HomeScreen = () => {
          <View>
             <View className="flex-row justify-between align-center pt-3"> 
                <Text className="text-2xl font-bold pb-5 ">
-                  Hello, Good Evening!
+                  Hello!
                </Text>
                <Bars3BottomRightIcon color="#000" onPress={()=>navigation.openDrawer()}/>
             </View>

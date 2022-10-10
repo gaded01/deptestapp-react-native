@@ -10,7 +10,7 @@ import { REACT_APP_BASE_API_URL } from "@env";
 import {useUsdiStatusContext} from '../../../context/UsdiStatusContext';
 
 const Option = ({postAnswer}) => {
-   const { usdiStatus, setUsdiStatus } = useUsdiStatusContext();
+   const { usdiStatus } = useUsdiStatusContext();
    const [usdiOption, setUsdiOption] = useState([]);
    const bgColor = ['bg-emerald-800', 'bg-amber-500', 'bg-orange-600', 'bg-red-500', 'bg-red-800'];
    let config = {};
@@ -27,7 +27,7 @@ const Option = ({postAnswer}) => {
          })
       }
       fetchOption();
-   },[]);
+   },[]); 
 
 
    return (

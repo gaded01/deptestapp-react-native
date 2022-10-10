@@ -21,7 +21,6 @@ function useForceUpdate(){
 }
 
 const Index = () => {
-   const forceUpdate = useForceUpdate();
    const navigation = useNavigation();
    const [loading, setLoading] = useState(false);
    const { usdiStatus, setUsdiStatus } = useUsdiStatusContext();
@@ -34,6 +33,7 @@ const Index = () => {
 
    useEffect(()=> {
       setLoading(true);
+      console.log('dddd2', usdiStatus); 
       const getItemNumber = async () => {
          let response = await AsyncStorage.getItem('@access_token');
          config = {
@@ -42,7 +42,7 @@ const Index = () => {
          await axios.get(`${REACT_APP_BASE_API_URL}/usdi-item`, config)
          .then((res) => {
             if(res.data !== 1){
-               setUsdiStatus(()=>res.data);
+               setUsdiStatus(()=> res.data);
                setLoading(false);
             }
             else {
@@ -71,8 +71,10 @@ const Index = () => {
                console.log(error);
             })
             setLoading(false);
+        
          }, 5000);
       }
+      console.log('ddddsss', usdiStatus);
    }
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>

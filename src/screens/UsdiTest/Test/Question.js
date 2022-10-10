@@ -24,12 +24,13 @@ const Question = () => {
          await axios.post(`${REACT_APP_BASE_API_URL}/get-usdiquestion/`+usdiStatus , params, config)
          .then((res) => {
             setUsdiQuestion(res.data)
+            console.log('wwww',usdiStatus)
          })
          .catch((error) => {
             return error;
          })
       }
-      fetchQuestion();
+      fetchQuestion(); 
    }, [usdiStatus]); 
 
    return (

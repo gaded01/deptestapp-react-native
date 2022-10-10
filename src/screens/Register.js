@@ -47,7 +47,7 @@ const Register = () => {
               
             }
             else{
-               alert('Registration Failed')
+               alert(res.data.message);
                setLoading(false);
             }
            

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, TextInput, TouchableOpacity, ScrollView} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { REACT_APP_BASE_API_URL } from "@env";
 import DonutChart from '../DonutChart';
@@ -46,6 +46,7 @@ const Result = () => {
          email: email,
          total_score: beckResult.score,
          result: beckResult.beck_depression_level.level_of_depression,
+         advice: beckResult.beck_depression_level.advice,
       }
       setLoading(true);
       await axios.post(`${REACT_APP_BASE_API_URL}/beck_result-email`, data, config)
@@ -66,42 +67,56 @@ const Result = () => {
          <View className="pt-3 flex-row justify-end">
                <Bars3BottomRightIcon color="#000" onPress={()=> navigation.openDrawer()}/>
          </View>
-         <View className="pt-5">
-            
-            {beckResult?
-               <>
-                  <Text className="text-lg font-bold text-center py-2" >
-                     {beckResult.beck_depression_level.level_of_depression} 
-                  </Text>
-                  <View>
-                     <DonutChart score={beckResult.score}/> 
-                  </View>
-                  <Text className="text-center py-4">
-                     Your results indicate that you may be expecting some symptoms of{' '} 
-                     {beckResult.beck_depression_level.level_of_depression}
-                  </Text>
-                  <View className="pt-2">
-                     <Text className="text-md">Want a copy of your results?</Text>
-                     <TextInput
-                        className="p-3 rounded-md border"
-                        placeholder="Enter Email"
-                        onChangeText={setEmail}
-                        value={email}
-                     />
-                     <TouchableOpacity
-                        className=" bg-sky-700 rounded-lg mt-2"
-                        onPress={() => sendEmailResult()}
-                     >
-                        <Text className="text-white text-center p-3 pl-4">
-                           Send Result
-                        </Text>
-                     </TouchableOpacity>
-                  </View>
-               </>
-            :
-            null}
-            <Spinner visible={loading}/>
-         </View>
+         <ScrollView
+            vertical
+            contentContainerStyle={{
+               paddingVertical: 0,
+               flexGrow: 1,
+            }}
+            showsHorizontalScrollIndicator={false}
+            className="pt-4"
+         >
+            <View className="pt-5">
+               {beckResult?
+                  <>
+                     <Text className="text-lg font-bold text-center py-2" >
+                        {beckResult.beck_depression_level.level_of_depression} 
+                     </Text>
+                     <View>
+                        <DonutChart score={beckResult.score}/> 
+                     </View>
+                     <Text className="text-center py-4">
+                        Your results indicate that you may be expecting some symptoms of{' '} 
+                        {beckResult.beck_depression_level.level_of_depression}
+                     </Text>
+                     <Text className="text-center font-bold uppercase">advice</Text>
+                     <Text className="text-center py-3 ">
+                        Your results indicate that you may be expecting some symptoms of{' '} 
+                        {beckResult.beck_depression_level.advice}
+                     </Text>
+                     <View className="pt-2 mb-6">
+                        <Text className="text-md">Want a copy of your results?</Text>
+                        <TextInput
+                           className="p-3 rounded-md border"
+                           placeholder="Enter Email"
+                           onChangeText={setEmail}
+                           value={email}
+                        />
+                        <TouchableOpacity
+                           className=" bg-sky-700 rounded-lg mt-2"
+                           onPress={() => sendEmailResult()}
+                        >
+                           <Text className="text-white text-center p-3 pl-4">
+                              Send Result
+                           </Text>
+                        </TouchableOpacity>
+                     </View>
+                  </>
+               :
+               null}
+               <Spinner visible={loading}/>
+            </View>
+         </ScrollView>
       </>
       
    );
