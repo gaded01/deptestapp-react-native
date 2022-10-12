@@ -33,7 +33,6 @@ const Index = () => {
 
    useEffect(()=> {
       setLoading(true);
-      console.log('dddd2', usdiStatus); 
       const getItemNumber = async () => {
          let response = await AsyncStorage.getItem('@access_token');
          config = {
@@ -72,7 +71,7 @@ const Index = () => {
             })
             setLoading(false);
         
-         }, 5000);
+         }, 2000);
       }
       console.log('ddddsss', usdiStatus);
    }
@@ -80,7 +79,7 @@ const Index = () => {
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
          {usdiStatus <= 30?
             <>  
-               <Question/>
+               {usdiStatus? <Question/> : null}
                <Option postAnswer={postAnswer}/>
             </>
             :

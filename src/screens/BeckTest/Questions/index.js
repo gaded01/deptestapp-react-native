@@ -35,6 +35,7 @@ const Index = () => {
             if(res.data !== 1){ 
                setBeckStatus(res.data);
                setLoading(false);
+               console.log('res', res.data);
             }
             else {
                setLoading(false);
@@ -42,7 +43,7 @@ const Index = () => {
          })
       }
       getItemNumber();
-   },[beckStatus]) 
+   },[beckStatus])
    
    // Submit Answer
    const postAnswer = async (answer) => {

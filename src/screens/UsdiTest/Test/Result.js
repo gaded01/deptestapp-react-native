@@ -88,7 +88,6 @@ const Result = () => {
                   </Text>
                   <Text className="text-center font-bold uppercase">advice</Text>
                   <Text className="text-center py-3 ">
-                     Your results indicate that you may be expecting some symptoms of{' '} 
                      {usdiResult.usdi_depression_level.advice}
                   </Text>
                   <View className="pt-5 mb-6">
