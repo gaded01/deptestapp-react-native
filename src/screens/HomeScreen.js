@@ -1,18 +1,18 @@
 import { useLayoutEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { 
 	Text, 
 	SafeAreaView,
    View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {HomeIcon} from "react-native-heroicons/outline";
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../context/BeckStatusContext';
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import BeckCard from "../components/BeckCard";
 import UsdiCard from "../components/UsdiCard";
-import {Bars3BottomRightIcon, Bars3Icon} from "react-native-heroicons/outline";
 
 const HomeScreen = () => {
 	const navigation = useNavigation();
@@ -52,7 +52,7 @@ const HomeScreen = () => {
                <Text className="text-2xl font-bold pb-5 ">
                   Hello!
                </Text>
-               <Bars3BottomRightIcon color="#000" onPress={()=>navigation.openDrawer()}/>
+               <HomeIcon color="#000" onPress={()=>navigation.openDrawer()}/>
             </View>
          
             <View className="pb-5"> 

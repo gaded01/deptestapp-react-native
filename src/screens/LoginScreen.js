@@ -40,7 +40,7 @@ const LoginScreen = ({ navigate }) => {
         if (res.data.status !== "failed") {
           console.log(res.data.access_token);
           storeToken(res.data.access_token);
-          navigation.navigate("Root");
+          navigation.navigate("HomePanel");
         } else {
           alert(res.data.result);
         }
