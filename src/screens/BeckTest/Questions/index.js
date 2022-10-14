@@ -77,7 +77,7 @@ const Index = () => {
 
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         {beckStatus<= 21?
+         {beckStatus<= 1?
             <>  
                <View>
                   <Text className="text-lg font-bold pt-5 pb-10">Question {beckStatus}/21</Text>

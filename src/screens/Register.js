@@ -82,10 +82,10 @@ const Register = () => {
                value={data.age}
             />
             <TouchableOpacity 
-               className="bg-sky-700 rounded-lg"
+               className="bg-cyan-900 mt-4 rounded-lg h-14"
                onPress={submitRegistration}
             >
-               <Text className="text-white text-base p-3 text-center">Register</Text>
+               <Text className="text-white text-base px-3 pt-4 text-center">Register</Text>
             </TouchableOpacity>
             <Text className="mt-5 text-base text-center">
 					Want to login?

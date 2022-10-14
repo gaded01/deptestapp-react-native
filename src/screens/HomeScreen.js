@@ -4,12 +4,14 @@ import {
 	Text, 
 	SafeAreaView,
    View,
+   TouchableOpacity,
 } from "react-native";
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {HomeIcon} from "react-native-heroicons/outline";
 import { REACT_APP_BASE_API_URL } from "@env";
 import {useBeckStatusContext} from '../context/BeckStatusContext';
+import { ArrowSmallLeftIcon } from "react-native-heroicons/outline";
 import SafeViewAndroid from "../components/SafeViewAndroid";
 import BeckCard from "../components/BeckCard";
 import UsdiCard from "../components/UsdiCard";
@@ -48,20 +50,25 @@ const HomeScreen = () => {
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
          <View>
-            <View className="flex-row justify-between align-center pt-3"> 
-               <Text className="text-2xl font-bold pb-5 ">
+            <View className="flex-row justify-between items-center align-center pt-3 pb-5">
+               <Text className="text-3xl text-cyan-900 font-bold">
                   Hello!
                </Text>
-               <HomeIcon color="#000" onPress={()=>navigation.openDrawer()}/>
+               <TouchableOpacity 
+                  className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center bg-cyan-900"
+                  onPress={()=> navigation.navigate("HomePanel")}
+               >
+               
+               <HomeIcon className="shadow-md " color="#fff"/>
+            </TouchableOpacity>
             </View>
-         
             <View className="pb-5"> 
-               <Text className="text-base font-bold">
+               <Text className="text-xl font-bold">
                   Depression Test
                </Text>
                
-               <Text className="text-xs text-gray-500">
-                  Select the following test to take to assess
+               <Text className="text-base text-gray-500">
+                  Select the following test to take to assess.
                </Text>
             </View>
             <View className="flex-row justify-center">

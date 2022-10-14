@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { REACT_APP_BASE_API_URL } from "@env";
 import DonutChart from '../DonutChart';
 import Spinner from 'react-native-loading-spinner-overlay';
-import {Bars3BottomRightIcon } from "react-native-heroicons/outline";
+import {Bars3BottomRightIcon, HomeIcon } from "react-native-heroicons/outline";
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -65,7 +65,13 @@ const Result = () => {
    return (
       <>
          <View className="pt-3 flex-row justify-end">
-               <Bars3BottomRightIcon color="#000" onPress={()=> navigation.openDrawer()}/>
+            <TouchableOpacity 
+               className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center bg-cyan-900"
+               onPress={()=> navigation.navigate("HomePanel")}
+            >
+               
+               <HomeIcon className="shadow-md " color="#fff"/>
+            </TouchableOpacity>
          </View>
          <ScrollView
             vertical
@@ -102,10 +108,10 @@ const Result = () => {
                            value={email}
                         />
                         <TouchableOpacity
-                           className=" bg-sky-700 rounded-lg mt-2"
+                           className="bg-cyan-900 mt-4 rounded-lg h-14"
                            onPress={() => sendEmailResult()}
                         >
-                           <Text className="text-white text-center p-3 pl-4">
+                           <Text className="text-white text-base text-center px-4 pt-4">
                               Send Result
                            </Text>
                         </TouchableOpacity>

@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import SafeViewAndroid from "../components/SafeViewAndroid";
-import {ArrowRightIcon,  Bars3BottomRightIcon } from "react-native-heroicons/outline";
+import {ArrowRightIcon,  Bars3BottomRightIcon, HomeIcon } from "react-native-heroicons/outline";
 
 const Activities = () => {
    const navigation = useNavigation();
@@ -23,11 +23,17 @@ const Activities = () => {
    });
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         <View className="pt-3 flex-row justify-between">
+         <View className="pt-3 flex-row justify-between items-center">
             <Text className="text-xl font-bold">
                   Excercise and Activities for Depression
             </Text>
-            <Bars3BottomRightIcon color="#000" onPress={()=>navigation.openDrawer()}/>
+            <TouchableOpacity 
+               className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center bg-cyan-900"
+               onPress={()=> navigation.navigate("HomePanel")}
+            >
+               
+               <HomeIcon className="shadow-md " color="#fff"/>
+            </TouchableOpacity>
          </View>
     
          <View style={{ flex: 1 }}>

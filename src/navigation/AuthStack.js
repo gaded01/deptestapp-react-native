@@ -6,6 +6,8 @@ import Register from "../screens/Register";
 import HomePanel from "../screens/HomePanel";
 import HomeScreen from "../screens/HomeScreen";
 import Beck from "../screens/BeckTest/index";
+import BeckHome from "../screens/BeckTest/BeckHome";
+import UsdiHome from "../screens/UsdiTest/UsdiHome";
 import Usdi from "../screens/UsdiTest/index";
 import Activities from "../screens/Activities";
 import Walk  from "../screens/AcitvitiesScreens/HelpDepression/Outdoor/Walk";
@@ -47,34 +49,146 @@ const AuthStack = () => {
          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
          <Stack.Screen name="Beck" component={Beck}/>
          <Stack.Screen name="Usdi" component={Usdi}/>
-         <Stack.Screen name="Activities" component={Activities}/>
-         <Stack.Screen name="Walk" component={Walk}/>
-         <Stack.Screen name="Bike" component={Bike}/>
-         <Stack.Screen name="OutReading" component={OutReading}/>
-         <Stack.Screen name="Gardening" component={Gardening}/>
-         <Stack.Screen name="Swimming" component={Swimming}/>
-         <Stack.Screen name="ArtsCrafts" component={ArtsCrafts}/>
-         <Stack.Screen name="Bath" component={Bath}/>
-         <Stack.Screen name="Chores" component={Chores}/>
-         <Stack.Screen name="Cooking" component={Cooking}/>
-         <Stack.Screen name="Games" component={Games}/>
-         <Stack.Screen name="InReading" component={InReading}/>
-         <Stack.Screen name="GetCultured" component={GetCultured}/>
-         <Stack.Screen name="HaveBite" component={HaveBite}/>
-         <Stack.Screen name="Massage" component={Massage}/>
-         <Stack.Screen name="WatchMovie" component={WatchMovie}/>
-         <Stack.Screen name="Coloring" component={Coloring}/>
-         <Stack.Screen name="Meditation" component={Meditation}/>
-         <Stack.Screen name="Yoga" component={Yoga}/>
-         <Stack.Screen name="ProfessionalHelp" component={ProfessionalHelp}/>
-         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy}/>
+         <Stack.Screen name="BeckHome" component={BeckHome}/>
+         <Stack.Screen name="UsdiHome" component={UsdiHome}/>
+         <Stack.Screen name="Activities" component={Activities} 
+         options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Walk" component={Walk} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Bike" component={Bike} 
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="OutReading" component={OutReading}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Gardening" component={Gardening}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Swimming" component={Swimming}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="ArtsCrafts" component={ArtsCrafts}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Bath" component={Bath}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Chores" component={Chores}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Cooking" component={Cooking}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Games" component={Games}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="InReading" component={InReading}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="GetCultured" component={GetCultured}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="HaveBite" component={HaveBite}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Massage" component={Massage}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="WatchMovie" component={WatchMovie}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Coloring" component={Coloring}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Meditation" component={Meditation}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="Yoga" component={Yoga}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="ProfessionalHelp" component={ProfessionalHelp}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
+         <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy}
+            options={{ 
+                  headerShown: false,
+                  drawerItemStyle: { display: 'none' } 
+            }}
+         />
          <Stack.Screen name="BeckResult" component={BeckResult}/>
          <Stack.Screen name="UsdiResult" component={UsdiResult}/>
          <Stack.Screen name="UsdiQuestion" component={UsdiQuestion}/>
          <Stack.Screen name="BeckQuestion" component={BeckQuestion}/>
-         <Stack.Screen name="Logout" component={Logout}/>
+         <Stack.Screen name="Logout" component={Logout}
+            options={{ 
+               headerShown: false,
+               drawerItemStyle: { display: 'none' } 
+            }}
+         />
          {/* <Stack.Screen name="Root" component={Root}  options={{ headerShown: false }}/> */}
       </Stack.Navigator>
    );
 }
-export default AuthStack; 
+export default AuthStack;

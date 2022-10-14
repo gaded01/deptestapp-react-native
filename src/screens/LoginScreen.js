@@ -69,10 +69,10 @@ const LoginScreen = ({ navigate }) => {
           placeholder="Enter Email"
         />
         <TouchableOpacity 
-          className="bg-sky-700 rounded-lg"
+          className="bg-cyan-900 mt-4 rounded-lg h-14"
           onPress={submitLogin}
         >
-				  <Text className="text-white text-lg p-3 text-center">Login</Text>
+				  <Text className="text-white text-lg px-3 pt-3 text-center">Login</Text>
 			  </TouchableOpacity>
         <Text className="mt-5 text-base text-center">
           No account?

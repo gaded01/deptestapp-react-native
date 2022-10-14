@@ -1,18 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react';
-import { useNavigation } from "@react-navigation/native";
-import SafeViewAndroid from "../../components/SafeViewAndroid";
-import {
-   View, 
-   StyleSheet, 
-   SafeAreaView,
-   Text,
-   TouchableOpacity
-} from 'react-native';
-import BeckCard from '../../components/BeckCard';
+import {View, StyleSheet, SafeAreaView, Image, TouchableOpacity, Text} from 'react-native';
 import { ArrowSmallLeftIcon } from 'react-native-heroicons/outline';
+import SafeViewAndroid from "../../components/SafeViewAndroid";
 
-const BeckIndex = () => {
-	const navigation = useNavigation();
+const BeckHome = () => {
+   const navigation = useNavigation();
+
    useLayoutEffect(() =>
       navigation.setOptions({
       headerShown: false,
@@ -20,11 +14,11 @@ const BeckIndex = () => {
    );
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         <View className="flex-row justify-start items-center pt-3 pb-5">
+          <View className="flex-row justify-start items-center pt-3 pb-5">
             <TouchableOpacity 
                   className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center"
                   onPress={() => {
-                     navigation.navigate("HomeScreen");
+                     navigation.navigate("Beck");
                   }}
                >
                <ArrowSmallLeftIcon
@@ -32,22 +26,26 @@ const BeckIndex = () => {
                />
             </TouchableOpacity>
             <Text className="text-2xl text-cyan-900 font-bold ml-2">
-               Beck Depression Inventory
+               Beck Test
             </Text>
          </View>
-         <BeckCard/>
+         <View className="flex-row justify-center">
+            <Image
+               style={{height: 250, width: 200}}
+               source={require("../../../assets/brain-cog.png")}
+               className="rounded-lg shadow-lg"
+            />
+         </View>
          <View>
             <Text className="text-lg text-gray-600 text-justify">
-               Beck depression inventory is 21 item, 
-               self-report rating inventory that measure 
-               characteristics and symptoms of depression.
+               Over the last 2 weeks, how often have you been bothered by any of the following problems
             </Text>
             <TouchableOpacity
                className="bg-cyan-900 mt-4 rounded-lg h-14"
-               onPress={()=>{navigation.navigate("BeckHome")}}
+               onPress={()=>{navigation.navigate("BeckQuestion")}}
             >
                <Text className="text-white text-base text-center px-3 pt-4 ">
-                  Click to Continue
+                  TAKE TEST
                </Text>
             </TouchableOpacity>
          </View>
@@ -55,4 +53,6 @@ const BeckIndex = () => {
    );
 }
 
-export default BeckIndex;
+const styles = StyleSheet.create({})
+
+export default BeckHome;
