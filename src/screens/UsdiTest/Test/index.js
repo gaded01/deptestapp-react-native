@@ -71,7 +71,7 @@ const Index = () => {
             })
             setLoading(false);
         
-         }, 2000);
+         }, 3000);
       }
       console.log('ddddsss', usdiStatus);
    }

@@ -35,7 +35,6 @@ const Index = () => {
             if(res.data !== 1){ 
                setBeckStatus(res.data);
                setLoading(false);
-               console.log('res', res.data);
             }
             else {
                setLoading(false);
@@ -62,7 +61,7 @@ const Index = () => {
             .catch((error)=> {
                console.log(error);
             })
-         }, 5000)
+         }, 3000)
         
       }
       // else{
@@ -77,10 +76,10 @@ const Index = () => {
 
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
-         {beckStatus<= 1?
+         {beckStatus<= 21?
             <>  
                <View>
-                  <Text className="text-lg font-bold pt-5 pb-10">Question {beckStatus}/21</Text>
+                  <Text className="text-2xl text-cyan-900 font-bold pt-10 pb-5">{beckStatus} / 21</Text>
                </View>
                <Question postAnswer={postAnswer}/> 
             </>

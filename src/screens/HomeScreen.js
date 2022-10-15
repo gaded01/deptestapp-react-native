@@ -68,7 +68,7 @@ const HomeScreen = () => {
                </Text>
                
                <Text className="text-base text-gray-500">
-                  Select the following test to take to assess.
+                  Select a test to assess whether you may be suffering from any of the depression assesing tool.
                </Text>
             </View>
             <View className="flex-row justify-center">

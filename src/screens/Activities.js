@@ -24,7 +24,7 @@ const Activities = () => {
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
          <View className="pt-3 flex-row justify-between items-center">
-            <Text className="text-xl font-bold">
+            <Text className="text-lg font-bold">
                   Excercise and Activities for Depression
             </Text>
             <TouchableOpacity 

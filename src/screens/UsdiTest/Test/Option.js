@@ -39,7 +39,7 @@ const Option = ({postAnswer}) => {
                key={i} 
                onPress={() => {postAnswer(option.id)}}
             >
-               <Text className="text-white p-3 pl-4">
+               <Text className="text-base text-white p-4 pl-4">
                   {option.option}
                </Text>
             </TouchableOpacity>

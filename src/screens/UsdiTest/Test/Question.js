@@ -30,11 +30,11 @@ const Question = () => {
          })
       }
       fetchQuestion(); 
-   }, [usdiStatus]); 
+   }, [usdiStatus]);
 
    return (
-      <View className="pt-5">
-         <Text className="text-xl font-bold">
+      <View className="pt-10">
+         <Text className="text-xl text-cyan-900 font-bold">
             {usdiQuestion.id+". " + usdiQuestion.question}
          </Text>
       </View>
