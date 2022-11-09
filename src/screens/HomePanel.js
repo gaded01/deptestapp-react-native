@@ -23,7 +23,7 @@ const HomePanel = () => {
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
          <View>
             <View className="flex-row justify-between py-5 ">
-               <Text className="text-2xl font-bold text-cyan-900 self-center w-52">Welcome to <Text className="text-4xl">Deptest App</Text></Text>
+               <Text className="text-2xl font-bold text-cyan-900 self-center w-52">Welcome to <Text className="text-4xl">Deptest</Text></Text>
                   <TouchableOpacity 
                      className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center bg-cyan-900"
                   >

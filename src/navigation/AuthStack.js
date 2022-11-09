@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from "../screens/LoginScreen";
@@ -35,9 +34,6 @@ import UsdiResult  from "../screens/UsdiTest/Test/Result";
 import UsdiQuestion from "../screens/UsdiTest/Test/index";
 import BeckQuestion from "../screens/BeckTest/Questions/index";
 import Logout from "../screens/Logout";
-
-
-
 
 const Stack = createNativeStackNavigator();
 const AuthStack = () => {

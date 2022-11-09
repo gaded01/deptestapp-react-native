@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
    return (
       <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
       <View className="flex-row justify-between items-center pt-3 pb-5"> 
-         <Text className="text-2xl pb-2 text-cyan-900 font-bold">Privary Policy</Text>
+         <Text className="text-2xl pb-2 text-cyan-900 font-bold">Privacy Policy</Text>
          <TouchableOpacity 
             className="w-10 h-10 shadow-sm flex items-center justify-center rounded-3xl self-center bg-cyan-900"
             onPress={()=> navigation.navigate("HomePanel")}

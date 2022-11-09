@@ -59,6 +59,7 @@ const Result = () => {
       })
       setLoading(false);
    }
+   
    return ( 
       <>
          <View className="pt-3 flex-row justify-end">

@@ -19,7 +19,6 @@ function useForceUpdate(){
    // An function that increment 👆🏻 the previous state like here 
    // is better than directly setting `value + 1`
 }
-
 const Index = () => {
    const navigation = useNavigation();
    const [loading, setLoading] = useState(false);
