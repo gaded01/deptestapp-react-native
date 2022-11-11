@@ -14,8 +14,17 @@ import {
 import axios from "axios";
 import {REACT_APP_BASE_API_URL} from '@env';
 import SafeViewAndroid from "../components/SafeViewAndroid";
+import SelectDropdown from 'react-native-select-dropdown'
 import Spinner from 'react-native-loading-spinner-overlay';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { interpolate } from "react-native-reanimated";
+import {ChevronDownIcon} from "react-native-heroicons/outline";
 
+const user_types = [
+   { id: "0", type: "Guidance Councilor" },
+   { id: "1", type: "Student" },
+   { id: "2", type: "Others" }
+];
 
 const Register = () => {
 	const navigation = useNavigation();
@@ -23,6 +32,7 @@ const Register = () => {
    const [data, setData] = useState({
       email : '',
       age : '',
+      role: '',
    })
 
 	useLayoutEffect(() => 
@@ -36,6 +46,7 @@ const Register = () => {
    }
 
    const submitRegistration = () => {
+      console.log(data)
       setLoading(true);
       const register = async () => {
          try {
@@ -44,6 +55,7 @@ const Register = () => {
                alert('Registration Success');
                setData('')
                setLoading(false);
+               navigation.navigate('Login');
               
             }
             else{
@@ -69,17 +81,35 @@ const Register = () => {
             </View>
             <Text className="mb-4 mt-2 text-lg font-bold text-center">Register Here</Text>
             <TextInput
-               className="p-3 rounded-md border mb-3"
+               className="p-3 rounded-md border mb-3 text-gray-600"
                onChangeText={(email) => inputHandler('email', email)}
                placeholder="Enter Email"
                value={data.email}
 
             />
             <TextInput
-               className="p-3 rounded-md border mb-5"
+               className="p-3 rounded-md border mb-5 text-gray-600"
                onChangeText={(age) => inputHandler('age', age)}
                placeholder="Enter Age"
                value={data.age}
+            />
+            <SelectDropdown
+               data={user_types}
+               buttonStyle={{backgroundColor:"white", width: "100%", borderWidth: .5, borderRadius: 5}}
+               buttonTextStyle={{color: "#686868", textAlign: "justify", fontSize: 15}}
+               defaultButtonText={"Select user type"}
+               buttonTextAfterSelection={(selectedType, index) => {
+                  return selectedType.type;
+               }}
+               rowTextForSelection={(userType, index) => {
+                  return userType.type;
+               }}
+               renderDropdownIcon={()=>{
+                  return <ChevronDownIcon className="shadow-md " color="#686868"/>
+               }}
+               onSelect={(selectedItem, index) => {
+                  setData({...data, role: selectedItem.id})
+               }}
             />
             <TouchableOpacity 
                className="bg-cyan-900 mt-4 rounded-lg h-14"
